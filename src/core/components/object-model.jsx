@@ -6,6 +6,58 @@ import ImPropTypes from "react-immutable-proptypes"
 const braceOpen = "{"
 const braceClose = "}"
 
+class EventComponent extends Component {
+  static propTypes = {
+    data: PropTypes.object.isRequired
+  }
+
+  render(){
+
+    let { events } = this.props
+
+    let jsEvents = events.toJS()
+
+    let mevents = Object.keys(jsEvents).map((key, index) => {
+        const ev = jsEvents[key]
+        return (
+          <tr key={key}>
+            <td>
+              {key}
+            </td>
+            <td>
+              {ev.description}<br/>
+              Example:
+              <div><div><div className="highlight-code"><pre className="example microlight"><span>{ev["content"]["application/json"]["example"]}</span></pre></div></div></div>
+            </td>
+          </tr>
+          )
+        
+      });
+
+    return (
+      <div>
+      <br/>
+      <br/>
+      <span className="model-title"> Events </span>
+        <table>
+          <thead>
+            <tr className="responses-header">
+              <td className="col col_header response-col_status">Code</td>
+              <td className="col col_header response-col_description">Description</td>
+            </tr>
+          </thead>
+          <tbody>
+            {mevents}
+          </tbody>
+        </table>
+        
+      </div>
+    )
+  }
+}
+
+
+
 export default class ObjectModel extends Component {
   static propTypes = {
     schema: PropTypes.object.isRequired,
@@ -35,6 +87,7 @@ export default class ObjectModel extends Component {
 
     let description = schema.get("description")
     let properties = schema.get("properties")
+    let events = schema.get("events")
     let additionalProperties = schema.get("additionalProperties")
     let title = schema.get("title") || displayName || name
     let requiredProperties = schema.get("required")
@@ -203,6 +256,10 @@ export default class ObjectModel extends Component {
           }
         </span>
         <span className="brace-close">{ braceClose }</span>
+        {
+          !events ? null 
+            : <EventComponent events={events}/>
+        }
       </ModelCollapse>
     </span>
   }
