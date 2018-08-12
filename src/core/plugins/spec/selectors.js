@@ -6,7 +6,7 @@ const DEFAULT_TAG = "default"
 
 // add here if you need a new method
 const OPERATION_METHODS = [
-  "get", "put", "post", "delete", "options", "head", "patch", "trace", "list"
+  "Add", "List", "Get", "Set", "Delete"
 ]
 
 const state = state => {
