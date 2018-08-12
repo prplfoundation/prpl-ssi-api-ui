@@ -4,8 +4,9 @@ import { fromJS, Set, Map, OrderedMap, List } from "immutable"
 
 const DEFAULT_TAG = "default"
 
+// add here if you need a new method
 const OPERATION_METHODS = [
-  "get", "put", "post", "delete", "options", "head", "patch", "trace"
+  "get", "put", "post", "delete", "options", "head", "patch", "trace", "list"
 ]
 
 const state = state => {

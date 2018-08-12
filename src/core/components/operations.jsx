@@ -2,8 +2,9 @@ import React from "react"
 import PropTypes from "prop-types"
 import Im from "immutable"
 
+// add here if you need a new method
 const SWAGGER2_OPERATION_METHODS = [
-  "get", "put", "post", "delete", "options", "head", "patch"
+  "get", "put", "post", "delete", "options", "head", "patch", "list"
 ]
 
 const OAS3_OPERATION_METHODS = SWAGGER2_OPERATION_METHODS.concat(["trace"])
