@@ -25,9 +25,16 @@ class EventComponent extends Component {
               {key}
             </td>
             <td>
-              {ev.description}<br/>
-              Example:
-              <div><div><div className="highlight-code"><pre className="example microlight"><span>{ev["content"]["application/json"]["example"]}</span></pre></div></div></div>
+              {ev.description}
+            </td>
+            <td>
+              <div className="highlight-code">
+                <pre className="example microlight">
+                  <span>
+                    {ev["content"]["application/json"]["example"]}
+                  </span>
+                </pre>
+              </div>
             </td>
           </tr>
           )
@@ -44,6 +51,7 @@ class EventComponent extends Component {
             <tr className="responses-header">
               <td className="col col_header response-col_status">Code</td>
               <td className="col col_header response-col_description">Description</td>
+              <td className="col col_header response-col_description">Example</td>
             </tr>
           </thead>
           <tbody>
