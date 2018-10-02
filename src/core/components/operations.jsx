@@ -89,7 +89,7 @@ export default class Operations extends React.Component {
                       // const validMethods = UBUS_METHODS
 
                       // if(validMethods.indexOf(method) === -1) {
-                      //   return null
+                        // return null
                       // }
 
                       return <OperationContainer

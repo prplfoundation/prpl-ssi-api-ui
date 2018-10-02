@@ -132,8 +132,9 @@ export const operations = createSelector(
       }
       path.forEach((operation, method) => {
         // if(OPERATION_METHODS.indexOf(method) < 0) {
-        //   return
-        // }
+        if(method.startsWith("$$")) {
+          return
+        }
         list = list.push(fromJS({
           path: pathName,
           method,
