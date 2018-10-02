@@ -10,7 +10,7 @@ const SWAGGER2_OPERATION_METHODS = [
 const OAS3_OPERATION_METHODS = SWAGGER2_OPERATION_METHODS.concat(["trace"])
 
 const UBUS_METHODS = [
-  "Add", "List", "Get", "Set", "Delete"
+  "Add", "List", "Get", "Set", "Delete", "Authorize", "Backup", "Clear", "Generate", "Load", "Queue", 
 ]
 
 
@@ -86,11 +86,11 @@ export default class Operations extends React.Component {
                       // selectors to the plugin system, to allow for dynamic
                       // overriding of low-level selectors that other selectors
                       // rely on. --KS, 12/17
-                      const validMethods = UBUS_METHODS
+                      // const validMethods = UBUS_METHODS
 
-                      if(validMethods.indexOf(method) === -1) {
-                        return null
-                      }
+                      // if(validMethods.indexOf(method) === -1) {
+                      //   return null
+                      // }
 
                       return <OperationContainer
                                  key={`${path}-${method}`}
