@@ -18,8 +18,11 @@ export default class OperationSummaryMethod extends PureComponent {
       method,
     } = this.props
 
+    let fullmethod = method.toUpperCase();
+    let last_dot_position = fullmethod.lastIndexOf(".");
+
     return (
-      <span className="opblock-summary-method">{method.toUpperCase()}</span>
+      <span className="opblock-summary-method">{fullmethod.substring(last_dot_position + 1, fullmethod.length)}</span>
     )
   }
 }
